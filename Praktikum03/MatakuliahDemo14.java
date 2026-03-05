@@ -16,20 +16,20 @@ public class MatakuliahDemo14 {
 
             System.out.println("Masukkan Data Matakuliah ke-" + (i + 1));
 
-            System.out.print("Kode        : ");
+            System.out.print("Kode       : ");
             kode = sc.nextLine();
 
-            System.out.print("Nama        : ");
+            System.out.print("Nama       : ");
             nama = sc.nextLine();
 
-            System.out.print("SKS         : ");
+            System.out.print("SKS        : ");
             sks = sc.nextInt();
 
-            System.out.print("Jumlah Jam  : ");
+            System.out.print("Jumlah Jam : ");
             jumlahJam = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("---------------------------");
+            System.out.println("-------------------------------");
 
             arrayOfMatakuliah[i] = new MataKuliah14(kode, nama, sks, jumlahJam);
         }
@@ -37,11 +37,11 @@ public class MatakuliahDemo14 {
         // Menampilkan data
         for (int i = 0; i < 3; i++) {
             System.out.println("Data Matakuliah ke-" + (i + 1));
-            System.out.println("Kode        : " + arrayOfMatakuliah[i].kode);
-            System.out.println("Nama        : " + arrayOfMatakuliah[i].nama);
-            System.out.println("SKS         : " + arrayOfMatakuliah[i].sks);
-            System.out.println("Jumlah Jam  : " + arrayOfMatakuliah[i].jumlahJam);
-            System.out.println("---------------------------");
+            System.out.println("Kode       : " + arrayOfMatakuliah[i].kode);
+            System.out.println("Nama       : " + arrayOfMatakuliah[i].nama);
+            System.out.println("SKS        : " + arrayOfMatakuliah[i].sks);
+            System.out.println("Jumlah Jam : " + arrayOfMatakuliah[i].jumlahJam);
+            System.out.println("-------------------------------");
         }
     }
 }

@@ -1,18 +1,18 @@
-package Praktikum03;
-
 import java.util.Scanner;
 
 public class DosenDemo14 {
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        Dosen14[] arrayDosen = new Dosen14[3];
+        System.out.print("Masukkan jumlah dosen: ");
+        int n = sc.nextInt();
+        sc.nextLine();
 
-        for (int i = 0; i < 3; i++) {
+        Dosen14[] arrayOfDosen = new Dosen14[n];
 
-            System.out.println("Masukkan Data Dosen ke-" + (i + 1));
+        for(int i=0;i<n;i++){
+            System.out.println("Masukkan Data Dosen ke-"+(i+1));
 
             System.out.print("Kode : ");
             String kode = sc.nextLine();
@@ -20,37 +20,36 @@ public class DosenDemo14 {
             System.out.print("Nama : ");
             String nama = sc.nextLine();
 
-            System.out.print("Jenis Kelamin (true=Pria, false=Wanita) : ");
-            boolean jenisKelamin = sc.nextBoolean();
+            System.out.print("Jenis Kelamin (P/L) : ");
+            String jk = sc.nextLine();
+
+            boolean jenisKelamin;
+
+            if(jk.equalsIgnoreCase("L")){
+                jenisKelamin = true;
+            }else{
+                jenisKelamin = false;
+            }
 
             System.out.print("Usia : ");
             int usia = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("-----------------------------");
-
-            arrayDosen[i] = new Dosen14(kode, nama, jenisKelamin, usia);
+            arrayOfDosen[i] = new Dosen14(kode,nama,jenisKelamin,usia);
         }
 
-        int no = 1;
+        DataDosen14 data = new DataDosen14();
 
-        for (Dosen14 d : arrayDosen) {
+        System.out.println("\nDATA SEMUA DOSEN");
+        data.dataSemuaDosen(arrayOfDosen);
 
-            System.out.println("Data Dosen ke-" + no);
+        data.jumlahDosenPerJenisKelamin(arrayOfDosen);
 
-            System.out.println("Kode : " + d.kode);
-            System.out.println("Nama : " + d.nama);
+        data.rerataUsiaDosenPerJenisKelamin(arrayOfDosen);
 
-            if (d.jenisKelamin) {
-                System.out.println("Jenis Kelamin : Pria");
-            } else {
-                System.out.println("Jenis Kelamin : Wanita");
-            }
+        data.infoDosenPalingTua(arrayOfDosen);
 
-            System.out.println("Usia : " + d.usia);
-            System.out.println("-----------------------------");
+        data.infoDosenPalingMuda(arrayOfDosen);
 
-            no++;
-        }
     }
 }

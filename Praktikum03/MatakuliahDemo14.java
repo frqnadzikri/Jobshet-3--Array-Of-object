@@ -3,45 +3,43 @@ package Praktikum03;
 import java.util.Scanner;
 
 public class MatakuliahDemo14 {
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        MataKuliah14[] arrayOfMatakuliah = new MataKuliah14[3];
+        System.out.print("Masukkan jumlah Matakuliah: ");
+        int jumlah = sc.nextInt();
+        sc.nextLine();
 
-        String kode, nama;
-        int sks, jumlahJam;
+        MataKuliah14[] arrayOfMatakuliah = new MataKuliah14[jumlah];
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < jumlah; i++) {
+
+            arrayOfMatakuliah[i] = new MataKuliah14();
 
             System.out.println("Masukkan Data Matakuliah ke-" + (i + 1));
 
             System.out.print("Kode       : ");
-            kode = sc.nextLine();
+            String kode = sc.nextLine();
 
             System.out.print("Nama       : ");
-            nama = sc.nextLine();
+            String nama = sc.nextLine();
 
             System.out.print("SKS        : ");
-            sks = sc.nextInt();
+            int sks = sc.nextInt();
 
             System.out.print("Jumlah Jam : ");
-            jumlahJam = sc.nextInt();
+            int jumlahJam = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("-------------------------------");
-
-            arrayOfMatakuliah[i] = new MataKuliah14(kode, nama, sks, jumlahJam);
+            arrayOfMatakuliah[i].tambahData(kode, nama, sks, jumlahJam);
         }
 
-        // Menampilkan data
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Data Matakuliah ke-" + (i + 1));
-            System.out.println("Kode       : " + arrayOfMatakuliah[i].kode);
-            System.out.println("Nama       : " + arrayOfMatakuliah[i].nama);
-            System.out.println("SKS        : " + arrayOfMatakuliah[i].sks);
-            System.out.println("Jumlah Jam : " + arrayOfMatakuliah[i].jumlahJam);
-            System.out.println("-------------------------------");
+        System.out.println("\nData Matakuliah:");
+
+        for (int i = 0; i < jumlah; i++) {
+            arrayOfMatakuliah[i].cetakInfo();
         }
     }
 }
